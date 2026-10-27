@@ -6,7 +6,7 @@ This project explores GFP variant-effect prediction using the **ProteinGym** ben
 
 ## Project Overview
 
-Notebook: `ProteinGym_GFP_ESM2_LoRA.ipynb`
+Notebook: `ProteinGym.ipynb`
 
 The workflow includes:
 
