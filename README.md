@@ -39,10 +39,7 @@ ProteinGym scores follow the definitions of the original assay. Score scales can
 
 The notebook uses `esm2_t6_8M_UR50D`. For each position in the wild-type sequence, the residue at that position is masked, and the conditional log-probability difference between a mutant residue and the wild-type residue is calculated:
 
-\[
-S_i = \log P(a_i^{mut}\mid x_{\setminus i}) -
-      \log P(a_i^{WT}\mid x_{\setminus i})
-\]
+$S_i = \log P(a_i^{\mathrm{mut}} \mid x_{\setminus i}) - \log P(a_i^{\mathrm{WT}} \mid x_{\setminus i})$
 
 For multi-site variants, the scores at individual mutated positions are summed as an additive approximation. This does not explicitly model epistasis between mutation sites and should not be interpreted as an exact prediction of combinatorial mutation effects.
 
@@ -50,9 +47,9 @@ For multi-site variants, the scores at individual mutated positions are summed a
 
 The notebook implements LoRA without using PEFT. A low-rank trainable update is added to a frozen pretrained linear layer:
 
-\[
+$$
 W' = W + \frac{\alpha}{r}BA
-\]
+$$
 
 where `r` is the LoRA rank and `alpha` is the scaling parameter.
 
